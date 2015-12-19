@@ -3,6 +3,7 @@ package ch.makery.address.view;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -55,12 +56,14 @@ public class MortgageController {
     	private Label bLabel = new Label();
 
 
+
     /**
      * Initializes the controller class. This method is automatically called
      * after the fxml file has been loaded.
      */
     @FXML
     private void initialize() {
+    	
 
     }
 
@@ -72,6 +75,30 @@ public class MortgageController {
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }
-    
+    @FXML
+    public void MortgageCalculater(){
+
+ 	   double cridetScore = Double.parseDouble(creditScoreTextField.getText());
+ 	   double tearm = Double.parseDouble(termTextField.getText());
+ 	   double houseCost = Double.parseDouble(houseCostTextField.getText());
+ 	   double i = Double.parseDouble(incomeTextField.getText());
+ 	   double e = Double.parseDouble(expensesTextField.getText());
+  
+ 	   double monthlyPayment = Rate.getPayment(cridetScore, tearm, houseCost);
+ 	   
+ 	   boolean monthlyPaymentOK = true;
+ 	   if ((monthlyPayment >= (i * .36)) || (monthlyPayment >= ((i + e) * .28))){
+ 		   monthlyPaymentOK = false;
+ 	   }
+
+ 	   mpLabel.setText("monthly paymetnt" + monthlyPayment);
+ 	   String can_cant = null;
+ 	   if (monthlyPaymentOK == false){
+ 		   can_cant = "This house is too much for you";
+ 	   }else{
+
+ 	   }
+ 	   bLabel.setText(can_cant);
+    }
    
 }
