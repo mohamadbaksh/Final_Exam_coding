@@ -6,12 +6,15 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 import base.RateDAL;
 import ch.makery.address.MainApp;
 import ch.makery.address.model.Rate;
+
 
 
 public class MortgageController {
@@ -26,6 +29,31 @@ public class MortgageController {
      */
     public MortgageController() {
     }
+    	@FXML
+    	private Label incomeLabel = new Label();
+    	@FXML
+    	private Label expensesLabel = new Label();
+    	@FXML
+    	private Label creditScoreLabel = new Label();
+    	@FXML
+    	private Label houseCostLabel = new Label();
+    	@FXML
+    	private Label termLabel = new Label();
+    	@FXML
+    	private TextField incomeTextField = new TextField();
+    	@FXML
+    	private TextField expensesTextField = new TextField();
+    	@FXML
+    	private TextField creditScoreTextField = new TextField();
+    	@FXML
+    	private TextField houseCostTextField = new TextField();
+    	@FXML
+    	private TextField termTextField = new TextField();  
+    	@FXML
+    	private Label mpLabel = new Label();
+    	@FXML
+    	private Label bLabel = new Label();
+
 
     /**
      * Initializes the controller class. This method is automatically called
